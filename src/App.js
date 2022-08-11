@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Request from './components/Request_Form/Request_form';
+import Criteria from './components/Registration_Form/Criteria_form/Criteria';
+import Form from './components/Registration_Form/Applicationform/Application';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <BrowserRouter>
+         <Routes>
+            <Route path='/criteria' exact element={<Criteria/>}/>
+           <Route path='/request' exact element={<Request/>}/> 
+           <Route path='/app' exact element={<Form/>}/>
+         </Routes>
+       </BrowserRouter>
     </div>
   );
 }
