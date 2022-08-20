@@ -6,7 +6,7 @@ import AlertBox from './Alertbox';
 import Child from './child';
 import Father from "./Father"
 import Mother from './Mother'
-import Family from './Family'
+// import Family from './Family'
 function Form(){
     // const [allValues, setAllValues] = useState({
     //     name: '',	
