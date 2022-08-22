@@ -115,7 +115,20 @@ export default function HOD() {
     const [value, setValue] = React.useState('1');
 
     const handleChange = (event, newValue) => {
-      setValue(newValue);
+        setValue(newValue);
+      axiosInstance.get('/filtered-application-details-HOD', {
+        params : {
+            status : newValue === "2" ? "eligible" : "not_eligible"
+        }
+      })
+      .then((response) => {
+        console.log("in filtered status : ",  response)
+        setData(response.data.data);
+        setFilteredData(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
     };
     const history = useNavigate()
     // function rand() {
@@ -140,6 +153,7 @@ export default function HOD() {
     };
   
     const [data, setData] = React.useState([]);
+    const [filteredData, setFilteredData] = React.useState([]);
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
     const emptyRows =
@@ -148,6 +162,24 @@ export default function HOD() {
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
+
+    const handleSearch = (event) => {
+        const filteredApplications = data.filter(
+            row => {
+              return (
+                row
+                .name
+                .toLowerCase()
+                .includes(event.target.value.toLowerCase()) ||
+                row
+                .email
+                .toLowerCase()
+                .includes(event.target.value.toLowerCase())
+              );
+            }
+        );
+        setFilteredData(filteredApplications);
+    };
     
     const handleChangeRowsPerPage = (event) => {
         setRowsPerPage(parseInt(event.target.value, 10));
@@ -155,38 +187,51 @@ export default function HOD() {
     };
     
     React.useEffect(() => {
-        setOpenSnackBar(true)
-        setSnanckBarConfig({
-            ...snackBarConfig,
-            message : "loading ....",
-            type: "success"
-        })
-        axiosInstance.get('/get-applciation-details')
-        .then((response) => {
+        if( value === "1") {
             setOpenSnackBar(true)
-            console.log(response)
-            let resData;
-            if(response.data.data){
-                // response.data.data.father_details=JSON.parse(response.data.data.father_details)
-                resData = response.data.data.map((row) => {
-                    // row.father_details = JSON.parse(row.father_details);
-                    return row;
-                });
-            }
-            setData(resData);
             setSnanckBarConfig({
                 ...snackBarConfig,
-                message : "Loaded Successfully",
+                message : "loading ....",
                 type: "success"
             })
-        })
-        .catch((error) => {
-            // if(error.response.status === 401) {
-            //     history('/admin/login');
-            // }
-            console.log(error);
-        })
-    },[])
+            axiosInstance.get('/get-applciation-details-HOD')
+            .then((response) => {
+                setOpenSnackBar(true)
+                console.log(response)
+                setData(response.data.data);
+                setFilteredData(response.data.data)
+                setSnanckBarConfig({
+                    ...snackBarConfig,
+                    message : "Loaded Successfully",
+                    type: "success"
+                })
+            })
+            .catch((error) => {
+                if(error.response.status === 401) {
+                    history('/admin/login');
+                }
+                console.log(error);
+            })
+        }
+    },[value])
+    const updateStatus = (id, status) => {
+        axiosInstance.put('/updatestatus', { status: status, id: id }).then(
+          (response) => {
+            console.log(response)
+            setData(
+                data.filter((val) => {
+                  return val.id != id;
+                })
+            );
+            setFilteredData(
+                filteredData.filter((val) => {
+                  return val.id != id;
+                })
+            );
+          }
+        );
+      };
+
     return (
         <div>
             <Container component={Paper} >
@@ -195,6 +240,7 @@ export default function HOD() {
                       <Grid item xs={4}>
                          <TextField sx ={{marginTop:2}}
                                             autoFocus
+                                            onChange={handleSearch}
                                             placeholder="Search by name,email.."
                                             name="Search"
                                             fullWidth
@@ -204,9 +250,9 @@ export default function HOD() {
                      <TabContext value={value}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <TabList onChange={handleChange} aria-label="lab API tabs example">
-                        <Tab label="Item One" value="1" />
-                        <Tab label="Item Two" value="2" />
-                        <Tab label="Item Three" value="3" />
+                        <Tab label="ALL" value="1" />
+                        <Tab label="ELIGIBLE" value="2" />
+                        <Tab label="NOT ELIGIBLE" value="3" />
                     </TabList>
                     </Box>
                 </TabContext>
@@ -215,7 +261,7 @@ export default function HOD() {
               </Container>
                 <Container>
                   <TabContext value={value}>
-                             <TabPanel value="1">  <TableContainer component={Paper}>
+                             <TabPanel value="1"> <TableContainer component={Paper}>
                                 <Table aria-label="custom pagination table">
                                     <TableHead>
                                         <TableRow>
@@ -229,10 +275,10 @@ export default function HOD() {
                                     </TableHead>
                                     <TableBody>
                                     {(rowsPerPage > 0
-                                        ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                        : data
-                                    ).map((row) => (
-                                        <TableRow key={row.name}>
+                                        ? filteredData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                        : filteredData
+                                    ).map((row, index) => (
+                                        <TableRow key={index}>
                                             <TableCell align="left">
                                                 {row.id}
                                             </TableCell>
@@ -250,8 +296,8 @@ export default function HOD() {
                                             </TableCell>
                                             <TableCell align="left">
                                             <Button  variant="contained" sx={{padding:1,fontSize:11,marginRight:2,alignItems:"center"}} startIcon={<RemoveRedEyeIcon />} onClick={()=>{handleOpen(row)}}>View</Button>
-                                                <Button  variant="contained" sx={{padding:1,fontSize:12,marginRight:2}} color="success">Eligible</Button>
-                                                <Button variant="contained" sx={{padding:1,fontSize:12}} color="error">Not Eligible</Button>
+                                                <Button  variant="contained" sx={{padding:1,fontSize:12,marginRight:2}} color="success" onClick={()=>{updateStatus(row.id, "eligible")}}>Eligible</Button>
+                                                <Button variant="contained" sx={{padding:1,fontSize:12}} color="error" onClick={()=>{updateStatus(row.id, "not_eligible")}}>Not Eligible</Button>
                                             </TableCell>
                                         </TableRow>
                                     ))}
@@ -298,10 +344,10 @@ export default function HOD() {
                                     </TableHead>
                                     <TableBody>
                                     {(rowsPerPage > 0
-                                        ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                        : data
-                                    ).map((row) => (
-                                        <TableRow key={row.name}>
+                                        ? filteredData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                        : filteredData
+                                    ).map((row, index) =>(
+                                        <TableRow key={index}>
                                             <TableCell align="left">
                                                 {row.id}
                                             </TableCell>
@@ -319,16 +365,10 @@ export default function HOD() {
                                             </TableCell>
                                             <TableCell align="left">
                                             <Button  variant="contained" sx={{padding:1,fontSize:11,marginRight:2,alignItems:"center"}} startIcon={<RemoveRedEyeIcon />} onClick={()=>{handleOpen(row)}}>View</Button>
-                                                <Button  variant="contained" sx={{padding:1,fontSize:12,marginRight:2}} color="success">Make Not Eligible</Button>
+                                                <Button  variant="contained" sx={{padding:1,fontSize:12,marginRight:2}} color="success" onClick={()=>{updateStatus(row.id, "not_eligible")}}>Make Not Eligible</Button>
                                             </TableCell>
                                         </TableRow>
                                     ))}
-
-                                    {/* {emptyRows > 0 && (
-                                        <TableRow style={{ height: 53 * emptyRows }}>
-                                        <TableCell colSpan={6} />
-                                        </TableRow>
-                                    )} */}
                                     </TableBody>
                                     <TableFooter>
                                     <TableRow>
@@ -366,10 +406,10 @@ export default function HOD() {
                                     </TableHead>
                                     <TableBody>
                                     {(rowsPerPage > 0
-                                        ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                        : data
-                                    ).map((row) => (
-                                        <TableRow key={row.name}>
+                                        ? filteredData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                        : filteredData
+                                    ).map((row, index) => (
+                                        <TableRow key={index}>
                                             <TableCell align="left">
                                                 {row.id}
                                             </TableCell>
@@ -387,16 +427,10 @@ export default function HOD() {
                                             </TableCell>
                                             <TableCell align="left">
                                             <Button  variant="contained" sx={{padding:1,fontSize:11,marginRight:2,alignItems:"center"}} startIcon={<RemoveRedEyeIcon />} onClick={()=>{handleOpen(row)}}>View</Button>
-                                                <Button  variant="contained" sx={{padding:1,fontSize:12,marginRight:2}} color="success">Make Eligible</Button>
+                                                <Button  variant="contained" sx={{padding:1,fontSize:12,marginRight:2}} color="success" onClick={()=>{updateStatus(row.id, "eligible")}} >Make Eligible</Button>
                                             </TableCell>
                                         </TableRow>
                                     ))}
-
-                                    {/* {emptyRows > 0 && (
-                                        <TableRow style={{ height: 53 * emptyRows }}>
-                                        <TableCell colSpan={6} />
-                                        </TableRow>
-                                    )} */}
                                     </TableBody>
                                     <TableFooter>
                                     <TableRow>

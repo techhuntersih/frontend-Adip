@@ -84,7 +84,6 @@ function Login(){
             history('/admin/home');
            }))
            .catch((error) => {
-                // if(error.response.status)
                 setOpenSnackBar(true);
                 setSnanckBarConfig({
                     ...snackBarConfig,
