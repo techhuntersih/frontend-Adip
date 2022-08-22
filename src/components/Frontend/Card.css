@@ -95,6 +95,7 @@
   @media (min-width: 992px)
   {
   .mainCard .col-lg-2 {
+    cursor: pointer;
       width: 20%;
   }
   }
