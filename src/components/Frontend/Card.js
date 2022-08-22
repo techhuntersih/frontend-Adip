@@ -1,6 +1,9 @@
+import { Button } from '@mui/material';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom';
 import './Card.css';
-function card() {
+function Card() {
+  const history = useNavigate();
   return (
     // <div className=''>
     //   <div className='mainWrapper'>
@@ -81,7 +84,10 @@ function card() {
 								</div>
               <h4> Enrollment for Cochlear Implant Surgery</h4>
               <div class="button">
-                <a href="newA.html" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a>
+              <Button onClick={()=>{
+                  history("./application")
+                }}>Click to apply</Button>
+                {/* <a href="newA.html" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a> */}
               </div>
             </div>
           </div>
@@ -93,7 +99,10 @@ function card() {
 								</div>
               <h4>Pre And Post cochlear Implant Services</h4>
               <div class="button">
-                <a href="newA.html" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a>
+              <Button onClick={()=>{
+                  history("./prepostservices")
+                }}>Click to apply</Button>
+                {/* <a href="newA.html" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a> */}
               </div>
             </div>
           </div>
@@ -105,7 +114,10 @@ function card() {
 								</div>
               <h4>Request For Services Of Audiologist/Speech Therapist</h4>
               <div class="button">
-                <a href="newA.html" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a>
+              <Button onClick={()=>{
+                  history("./request")
+                }}>Click to apply</Button>
+                {/* <a href="newA.html" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a> */}
               </div>
             </div>
           </div>
@@ -117,7 +129,10 @@ function card() {
 								</div>
               <h4>Empanelment Of Hospitals And Professionals</h4>
               <div class="button">
-                <a href="newA.html" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a>
+              <Button onClick={()=>{
+                  history("./hospitalempalenment")
+                }}>Click to apply</Button>
+                {/* <a href="newA.html" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a> */}
               </div>
             </div>
           </div>
@@ -141,7 +156,10 @@ function card() {
 								</div>
               <h4>Surgical Report</h4>
               <div class="button">
-                <a href="newA.html" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a>
+                <Button onClick={()=>{
+                  history("./hospitallogin")
+                }}>Click to apply</Button>
+                {/* <a href="newA.html" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a> */}
               </div>
             </div>
           </div>
@@ -153,7 +171,9 @@ function card() {
 								</div>
               <h4>Activation And Mapping</h4>
               <div class="button">
-                <a href="newA.html" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a>
+              <Button onClick={()=>{
+                  history("./activationmapping")
+                }}>Click to apply</Button>
               </div>
             </div>
           </div>
@@ -165,7 +185,9 @@ function card() {
 								</div>
               <h4>Post Operative Rehabilitation</h4>
               <div class="button">
-                <a href="newA.html" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a>
+              <Button onClick={()=>{
+                  history("./postrehabilation")
+                }}>Click to apply</Button>
               </div>
             </div>
           </div>
@@ -177,7 +199,10 @@ function card() {
 								</div>
               <h4>Check Application Status</h4>
               <div class="button">
-                <a href="newA.html" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a>
+              <Button onClick={()=>{
+                  history("./checkapplicationstatus")
+                }}>Click to apply</Button>
+                {/* <a href="newA.html" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a> */}
               </div>
             </div>
           </div>
@@ -190,4 +215,4 @@ function card() {
   );
 }
 
-export default card;
+export default Card;

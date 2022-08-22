@@ -87,7 +87,7 @@ function Login(){
                 setOpenSnackBar(true);
                 setSnanckBarConfig({
                     ...snackBarConfig,
-                    message : error.response.data.error[0].message,
+                    message : error.response.data.error.message,
                     type: "error"
                 })
            })
