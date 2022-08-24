@@ -133,7 +133,7 @@ function Header() {
                 </div>
                 </div>
                 </div>
-                
+{/*                 
                <div className='logos-class'>
             
              
@@ -151,7 +151,7 @@ function Header() {
                <div className='logos-class'>
                 <SupportAgentTwoToneIcon fontSize='large'/>
                 </div>
-                
+                 */}
                
             
             
