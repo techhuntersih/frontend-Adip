@@ -96,8 +96,8 @@ header
 } */
 .logoImage2{
     /* border:  1px solid black; */
-    width:60%;
-    height:60%;
+    width:80%;
+    height:20%;
 
 }
 .logotxt{
@@ -146,11 +146,10 @@ li.dropdown {
     transition-delay: 0s;
 
 }
-.logos-class{
+/* .logos-class{
   height:20px;
   width: 20%;
   display: flex;
   flex-direction: row;
-  justify-content:space-between;
-  margin-left: 250px;
-}
+  border: 1px solid red;
+} */
