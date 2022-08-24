@@ -72,7 +72,11 @@ function Card() {
 								</div>
               <h4>ADIP Scheme</h4>
               <div class="button">
-                <a href="newA.html" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a>
+              <Button onClick={()=>{
+                  history("./adip")
+                }}>Click to apply</Button>
+               
+                {/* <a href="" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a> */}
               </div>
             </div>
           </div>
@@ -144,7 +148,10 @@ function Card() {
 								</div>
               <h5>Approved/Empanelled List Of Hospitals. Audiologists and Speech Therapists</h5>
               <div class="button">
-                <a href="newA.html" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a>
+              <Button onClick={()=>{
+                  history("./approve")
+                }}>Click to apply</Button>
+                {/* <a href="newA.html" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a> */}
               </div>
             </div>
           </div>
@@ -201,7 +208,7 @@ function Card() {
               <div class="button">
               <Button onClick={()=>{
                   history("./checkapplicationstatus")
-                }}>Click to apply</Button>
+                }}>Click To Apply</Button>
                 {/* <a href="newA.html" class="bizwheel-btn" target="_blank"><i class="fa fa-arrow-circle-o-right"></i>Click to Apply</a> */}
               </div>
             </div>

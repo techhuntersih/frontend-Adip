@@ -13,6 +13,11 @@ import Postoperativerehablitation from './components/LOGINS-PROFESSIONALS/Postre
 import ActivationMapping from './components/LOGINS-PROFESSIONALS/ActivationMapping';
 import HospitalEmpanelment from './components/Request_Form/Hospital Empannelment/HospitalEmpalenment';
 import Download from './components/Request_Form/PDFS-component/Pre_and_post_services';
+import Faq from './components/Frontend/faq';
+import Contactus from './components/Frontend/contactus';
+import Feedback from './components/Frontend/feedback';
+import Adip from './components/Frontend/adip';
+import Approve from './components/Frontend/approve';
 function App() {
   return (
     <div className="App">
@@ -31,6 +36,12 @@ function App() {
            <Route path='/hospitalempalenment' exact element={<HospitalEmpanelment/>}/>
            <Route path='/checkapplicationstatus' exact element={<CheckApplicationStatus/>}/>
            <Route path='/prepostservices' exact element={<Download/>}/>
+           <Route path='/faq' exact element={<Faq/>}/>
+           <Route path='/contactus' exact element={<Contactus/>}/>
+           <Route path='/Feedback' exact element={<Feedback/>}/>
+           <Route path='/Adip' exact element={<Adip/>}/>
+           <Route path='/Approve' exact element={<Approve/>}/>
+
            {/* <Route path='/check' exact element={<CheckApplicationStatus/>}/> */}
          </Routes>
        </BrowserRouter>

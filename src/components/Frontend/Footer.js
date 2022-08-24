@@ -1,11 +1,16 @@
 import React from "react";
 import "./footer.css";
 import { Button } from "@mui/material";
+import ScrollToTop from "react-scroll-to-top";
+
 
 
 function Footer() {
+
   return (
     <div className="main-footer">
+      <ScrollToTop smooth />
+     
       <div className="container">
         <div className="row">
           {/* Column1 */}

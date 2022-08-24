@@ -7,11 +7,12 @@ import{AppBar, Tab, Tabs, Toolbar, } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
+import './NavigationBar.css';
 
 const styles = {
     tab: {
         minWidth: 10 ,
-        color: '#ffffff'
+        color: '#ffffff',
     }
 }
 
@@ -34,9 +35,10 @@ const styles = {
 
 const NavigationBar =()=> {
     return(
+        <div className='Nav'>
 
         <React.Fragment>
-            <AppBar sx={{ background:'#2f1045'}}>
+            <AppBar sx={{ background:'#2f1045' }}>
                 <Toolbar>
               <Tabs>
             
@@ -82,6 +84,7 @@ const NavigationBar =()=> {
       </AppBar>
   
   </React.Fragment>
+  </div>
     )
     
 }

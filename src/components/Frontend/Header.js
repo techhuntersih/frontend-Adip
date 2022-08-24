@@ -1,6 +1,14 @@
 import $ from 'jquery';
 import './Header.css'
 
+import Icon from '@mui/material/Icon';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import PeopleAltTwoToneIcon from '@mui/icons-material/PeopleAltTwoTone';
+import SupportAgentTwoToneIcon from '@mui/icons-material/SupportAgentTwoTone';
+import { Button } from 'bootstrap';
+
+
+
 
 
 $(document).on("click", "a.zoom-ina", function(e) {
@@ -95,6 +103,7 @@ $(document).ready(function (){
     });
 });
 function Header() {
+   
     return (
       
         <div>
@@ -113,59 +122,42 @@ function Header() {
             </li>
            </ul>
                </div>
-               <div className=''>
+               <div className='Header'>
       <div className='mainWrapper'>
                 <div className='logoImage'>
                 <img className='logoimage2' alt="logo" src="./Images/My_project-removebg-preview.png"/>
                 <div className='logotxt'>
-                    <h1>ADIP Scheme</h1>
-                    <h2>Government Of India</h2>
+                    <h5>Cochlear Implant Under ADIP Scheme </h5>
+                    <div className='logotxt1'>
+                    <h7>Of Government Of India</h7>
                 </div>
                 </div>
-                <div className='nav'>
-                <ul>
-                    <li class="dropdown">
-                    <a href="" className="dropbtn">
-                        <img src="/Images/logo1.png" className='logo'/>
-                    </a>
-                    <div className='dropdown-content'>
-                        <ul>
-                        <li>
-                            <a href="">MY GOVERNMENT</a>
-                        
-                        </li>
-                        </ul>
-                    </div>
-                    </li>
-                    <li class="dropdown">
-                    <a href="" className="dropbtn">
-                        <img src="/Images/logo2.png" className='logo'/>
-                    </a>
-                    <div className='dropdown-content'>
-                        <ul>
-                        <li>
-                            <a href="">CI CANDIDACY</a>
-                            
-                        </li>
-                        </ul>
-                    </div>
-                    </li>
-                    <li class="dropdown">
-                    <a href="" className="dropbtn">
-                        <img src="/Images/logo3.png" className='logo'/>
-                    </a>
-                    <div className='dropdown-content'>
-                        <ul>
-                        <li>
-                            <a href="">GuIDANCE/SUPPORT</a>
-                            
-                        </li>
-                        </ul>
-                    </div>
-                    </li>
-                </ul>
+                </div>
                 
+               <div className='logos-class'>
+            
+             
+
+  
+
+
+               
+                <AccountBalanceIcon fontSize='large'/>
                 </div>
+                <div className='logos-class'>
+                
+               <PeopleAltTwoToneIcon fontSize='large'/>
+               </div>
+               <div className='logos-class'>
+                <SupportAgentTwoToneIcon fontSize='large'/>
+                </div>
+                
+               
+            
+            
+             
+                
+               
                 <div>
                 <img src="/Images/adip-removebg-preview.png" alt="logo" className='logoImage2'/>
                 </div>
