@@ -3,7 +3,11 @@ import "./contactus.css";
 
 function Contactus(){
     return(
-        <div className='contactus'>
+        <div className='container-fluid'>
+        <div className='row'>
+        
+        
+        <div className='contactus col-12'>
             <div><h2>CONTACT US</h2></div>
              <div>
              <h4>The Director</h4>
@@ -96,6 +100,8 @@ Nagpur - 440012, Maharashtra</li>
 <li>Phone : 0712-2445439</li>
 <li>E-mail : nagpurcrc@gmail.com</li>
             </p>
+        </div>
+        </div>
         </div>
         </div>
         

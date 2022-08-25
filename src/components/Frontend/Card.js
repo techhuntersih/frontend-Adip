@@ -64,7 +64,7 @@ function Card() {
     <div className='mainCard'>
       <div className='container-fluid'>
         <div className='row d-flex justify-content-center'>
-          <div class="col-lg-2 col-md-2 col-12">
+          <div class="col-lg-2 col-md-6 col-12">
             <div class="single-feature">
             <div class="icon-head">
 									<i class="fa fa-address-card-o" aria-hidden="true">
@@ -80,7 +80,7 @@ function Card() {
               </div>
             </div>
           </div>
-          <div class="col-lg-2 col-md-2 col-12">
+          <div class="col-lg-2 col-md-6 col-12">
             <div class="single-feature">
             <div class="icon-head">
 									<i class="fa fa-address-card-o" aria-hidden="true">
@@ -95,7 +95,7 @@ function Card() {
               </div>
             </div>
           </div>
-          <div class="col-lg-2 col-md-2 col-12">
+          <div class="col-lg-2 col-md-6 col-12">
             <div class="single-feature">
             <div class="icon-head">
 									<i class="fa fa-address-card-o" aria-hidden="true">
@@ -110,7 +110,7 @@ function Card() {
               </div>
             </div>
           </div>
-          <div class="col-lg-2 col-md-2 col-12">
+          <div class="col-lg-2 col-md-6 col-12">
             <div class="single-feature">
             <div class="icon-head">
 									<i class="fa fa-address-card-o" aria-hidden="true">
@@ -125,7 +125,7 @@ function Card() {
               </div>
             </div>
           </div>
-          <div class="col-lg-2 col-md-2 col-12">
+          <div class="col-lg-2 col-md-6 col-12">
             <div class="single-feature">
             <div class="icon-head">
 									<i class="fa fa-address-card-o" aria-hidden="true">
@@ -140,7 +140,7 @@ function Card() {
               </div>
             </div>
           </div>
-          <div class="col-lg-2 col-md-2 col-12">
+          <div class="col-lg-2 col-md-6 col-12">
             <div class="single-feature">
             <div class="icon-head">
 									<i class="fa fa-address-card-o" aria-hidden="true">
@@ -155,7 +155,7 @@ function Card() {
               </div>
             </div>
           </div>
-          <div class="col-lg-2 col-md-2 col-12">
+          <div class="col-lg-2 col-md-6 col-12">
             <div class="single-feature">
             <div class="icon-head">
 									<i class="fa fa-address-card-o" aria-hidden="true">
@@ -170,7 +170,7 @@ function Card() {
               </div>
             </div>
           </div>
-          <div class="col-lg-2 col-md-2 col-12">
+          <div class="col-lg-2 col-md-6 col-12">
             <div class="single-feature">
             <div class="icon-head">
 									<i class="fa fa-address-card-o" aria-hidden="true">
@@ -184,7 +184,7 @@ function Card() {
               </div>
             </div>
           </div>
-          <div class="col-lg-2 col-md-2 col-12">
+          <div class="col-lg-2 col-md-6 col-12">
             <div class="single-feature">
             <div class="icon-head">
 									<i class="fa fa-address-card-o" aria-hidden="true">
@@ -198,7 +198,7 @@ function Card() {
               </div>
             </div>
           </div>
-          <div class="col-lg-2 col-md-2 col-12">
+          <div class="col-lg-2 col-md-6 col-12">
             <div class="single-feature">
             <div class="icon-head">
 									<i class="fa fa-address-card-o" aria-hidden="true">

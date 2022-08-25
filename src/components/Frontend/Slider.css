@@ -76,3 +76,11 @@
   .dot.active {
     background: rgb(32, 32, 32);
   }
+  @media screen and (max-width:992px) {
+    .slide img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+  }
+
+  }

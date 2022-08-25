@@ -18,6 +18,12 @@ import Contactus from './components/Frontend/contactus';
 import Feedback from './components/Frontend/feedback';
 import Adip from './components/Frontend/adip';
 import Approve from './components/Frontend/approve';
+import How from './components/Frontend/How';
+import Cicandidacy from './components/Frontend/cicandidacy';
+import Guidance from './components/Frontend/guidance';
+import About from './components/Frontend/aboutthescheme';
+
+
 function App() {
   return (
     <div className="App">
@@ -41,6 +47,13 @@ function App() {
            <Route path='/Feedback' exact element={<Feedback/>}/>
            <Route path='/Adip' exact element={<Adip/>}/>
            <Route path='/Approve' exact element={<Approve/>}/>
+           <Route path='/howtoapply' exact element={<How/>}/>
+           <Route path='/cicandidacy' exact element={<Cicandidacy/>}/>
+           <Route path='/guidance' exact element={<Guidance/>}/>
+           <Route path='/aboutthescheme' exact element={<About/>}/>
+           
+
+
 
            {/* <Route path='/check' exact element={<CheckApplicationStatus/>}/> */}
          </Routes>

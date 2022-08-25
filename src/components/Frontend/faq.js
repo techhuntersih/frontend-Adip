@@ -2,9 +2,14 @@ import * as React from 'react';
 import "./faq.css"
 function Faq() {
     return(
+        <div className='container-fluid'>
+        <div className='row'>
+        
+      
+
 
     
-        <div className='faq'>
+        <div className='faq col-12'>
         
 <div><h2>FAQ(s) Frequently Asked Questions</h2></div>
         <h4> What is a cochlear implant?</h4>
@@ -109,6 +114,8 @@ Yes, with restrictions. The cochlear implant internal device has a magnet that c
 
 
 
+    </div>
+    </div>
     </div>
     
     )

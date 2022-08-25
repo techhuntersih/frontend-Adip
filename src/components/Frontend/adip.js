@@ -2,7 +2,10 @@ import * as React from 'react';
 import './adip.css';
 function Adip() {
     return(
-        <div className='adip'>
+        <div className='container-fluid'>
+        <div className='row'>
+        
+        <div className='adip col-12'> 
 
 
         <div><h2>ADIP Scheme</h2></div>
@@ -37,7 +40,9 @@ function Adip() {
 
 
 
-    </div>    
+    </div> 
+    </div>
+    </div>   
     )
     }
     export default Adip;

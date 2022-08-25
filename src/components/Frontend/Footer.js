@@ -2,10 +2,13 @@ import React from "react";
 import "./footer.css";
 import { Button } from "@mui/material";
 import ScrollToTop from "react-scroll-to-top";
+import { useNavigate } from 'react-router-dom';
+
 
 
 
 function Footer() {
+  const history = useNavigate();
 
   return (
     <div className="main-footer">
@@ -37,7 +40,11 @@ function Footer() {
           <p className="col-sm">
           
                   |<Button style={{color:'white', fontSize:'0.8rem'}}> Home</Button> |  
-            <Button style={{color:'white', fontSize:'0.8rem' }}> Terms and Conditions </Button>  | <Button style={{color:'white', fontSize:'0.8rem'}}> Accessibilty Option</Button>     |  <Button style={{color:'white' , fontSize:'0.8rem'}}> Contact us</Button>   |    <Button style={{color:'white' , fontSize:'0.8rem'}}>Site Map </Button> | <Button style={{color:'white' , fontSize:'0.8rem'}}> Privacy Policy </Button>   | <Button style={{color:'white' , fontSize:'0.8rem'}}>Feedback  </Button> |<Button style={{color:'white' , fontSize:'0.8rem'}}> Help to person with disabilities </Button>|          
+            <Button style={{color:'white', fontSize:'0.8rem' }} onClick={()=>{
+                  history("./faq.js")}}> Terms and Conditions </Button>  | <Button style={{color:'white', fontSize:'0.8rem'}}> Accessibilty Option</Button>     |  <Button style={{color:'white' , fontSize:'0.8rem'}} onClick={()=>{
+                  history("./contactus")
+                }}> Contact us</Button>   |    <Button style={{color:'white' , fontSize:'0.8rem'}}>Site Map </Button> | <Button style={{color:'white' , fontSize:'0.8rem'}}> Privacy Policy </Button>   | <Button style={{color:'white' , fontSize:'0.8rem'}} onClick={()=>{
+                  history("./feedback")}}>Feedback  </Button> |<Button style={{color:'white' , fontSize:'0.8rem'}}> Help to person with disabilities </Button>|          
             <div style={{fontSize:' 0.8rem'}}>  All Rights Reserved |
             
                    &copy; 2015 Cochlear Implant Under ADIP Scheme of GOI  </div>

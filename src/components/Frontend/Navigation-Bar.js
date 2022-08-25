@@ -4,9 +4,8 @@ import React from 'react'
 
 
 import{AppBar, Tab, Tabs, Toolbar, } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
-import IconButton from '@mui/material/IconButton';
-import InputBase from '@mui/material/InputBase';
+import { useNavigate } from 'react-router-dom';
+
 import './NavigationBar.css';
 
 const styles = {
@@ -34,33 +33,45 @@ const styles = {
 
 
 const NavigationBar =()=> {
+    const history = useNavigate();
     return(
-        <div className='Nav'>
+       
+       
 
         <React.Fragment>
+        
             <AppBar sx={{ background:'#2f1045' }}>
                 <Toolbar>
-              <Tabs>
+              <Tabs Tabs style={{justifyContent :'space-between' }}>
             
-
-               <Tabs style={{justifyContent :'space-between' }}/>
+             
+               
                <Tabs sx={{marginleft:'auto'}} />
                 <Tab indicatorColor={'white'}/>
-              
-                <Tab   label = "HOME"  style={styles.tab}  />
-                <Tab   label = "    "  style={styles.tab}  />
 
-                <Tab  label="ABOUT THE SCHEME"  style={styles.tab} />
-                <Tab   label = "  "  style={styles.tab}  />
+              
+               
                 
 
-                <Tab label="HOW TO APPLY"  style={styles.tab} />
-    
-          
+                <Tab  label="ABOUT THE SCHEME"  style={styles.tab} onClick={()=>{
+                  history("/aboutthescheme")
+                }} />
+            
+
+                <Tab   label = "  CI CANDIDACY "  style={styles.tab} onClick={()=>{
+                  history("/cicandidacy")
+                }} />  
+                
+
+                <Tab label="GUIDANCE/SUPPORT"  style={styles.tab}  onClick={()=>{
+                  history("/guidance")
+                }} />
+                <Tab label=" HOW TO APPLY"  style={styles.tab}   onClick={()=>{
+                  history("/howtoapply")}}/>
                 
                 </Tabs>
 
-                <div>
+                {/* <div>
                     
                 <InputBase sx={{marginleft:'auto'}} indicatorcolor={'white'} style={{
                     backgroundColor:"white", 
@@ -77,14 +88,16 @@ const NavigationBar =()=> {
                 
                 </IconButton>
               
-                </div>
+                </div> */}
         
         </Toolbar>
 
       </AppBar>
+    
   
   </React.Fragment>
-  </div>
+ 
+
     )
     
 }
